@@ -1,0 +1,59 @@
+------------------------------------------------------------------
+                Coursera Getting and Cleaning Data Course Project CodeBook
+-----------------------------------------------------------------
+
+This document supports the course project for Coursera's Getting and Cleaning Data.
+
+-----------------------------------------------------------------
+
+Project Purpose: To collect, work with, clean a data set and produce a tidy dataset.
+
+-----------------------------------------------------------------
+
+Background: The underlying data for this project were signals collected while
+participants underwent everyday activities. Wearing a Smartphone embedded with an accelerometer
+and a gyroscope, signals were sent, received and pre-processed into a "feature" which 
+describes a specific aspect of a participant's motion while walking, climbing stairs, etc. Raw
+signals are found in the dataset's InertialSignals folder; those signals were pre-processed (as
+described in the ReadMe file with the dataset) into 561 features, such as "tBodyAcc-mean()-Z", the mean of the time-based body acceleration in the Z-axis. 
+
+This project focused on the subject, the activities and the features data only. There were 30
+participants, divided randomly into two groups: test and training.
+
+-----------------------------------------------------------------
+
+Data Source and Composition: 
+The data were found at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+The contents are:
+    subject_test.txt and subject_train.txt: contains a value of 1-30 identifying the subjec t
+            /participant.
+    X_test.txt and X_train.txt: contains the features as described above
+    y_test.txt and y_train.txt: contains a value of 1-6 identifying the activity
+    activities_labels: names the 6 activities
+    features.txt: names the 561 features
+    featues_info.txt: describes the features
+    features.txt
+    
+    Two folders containing the Inertial Signal for both test and train. None of the files 
+    contained within were used in the data analysis project.
+    
+-----------------------------------------------------------------
+
+The Approach
+
+1. Download the data to a local directory; look at the directory structue and the file
+   composition.
+2. Read the data into R; check for NAs.
+3. Join the test and train files for subject, activity and feature files. Improve the 
+   readability by replacing the existing generic column labels (V1, V2, etc) with descriptive 
+   labels as well as the numeric designator for the activity with the name of the activity.
+4. Combine these three files into a master dataframe for possible future use.
+5. Accomplish the data analysis:
+   5.1: Pull out the mean and standard deviation columns according to the assignment 
+        and combine into one data frame; join with the subject and activity labeled files.
+   5.2: Create a tidy data set that finds the average of the mean and the standard deviation
+        for each feature associated with an activity for each participant.
+6. Write out the results.
+
+-----------------------------------------------------------------
